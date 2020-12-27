@@ -7,6 +7,12 @@ from rest_framework.views import APIView
 from cbvApp.models import Student
 from cbvApp.serializers import StudentModelSerializer
 from rest_framework import generics, mixins
+from rest_framework import viewsets
+
+class StudentViewSet(viewsets.ModelViewSet):
+    queryset = Student.objects.all()
+    serializer_class = StudentModelSerializer
+    permission_classes = []
 
 
 class StudentList(generics.ListCreateAPIView):
