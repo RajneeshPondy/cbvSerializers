@@ -8,11 +8,18 @@ from cbvApp.models import Student
 from cbvApp.serializers import StudentModelSerializer
 from rest_framework import generics, mixins
 from rest_framework import viewsets
+from rest_framework.pagination import PageNumberPagination, LimitOffsetPagination
+
+
+class StudentPagination(PageNumberPagination):
+    page_size = 4
+
 
 class StudentViewSet(viewsets.ModelViewSet):
     queryset = Student.objects.all()
     serializer_class = StudentModelSerializer
     permission_classes = []
+    pagination_class = LimitOffsetPagination
 
 
 class StudentList(generics.ListCreateAPIView):
