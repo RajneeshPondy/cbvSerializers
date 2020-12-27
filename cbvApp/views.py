@@ -10,10 +10,8 @@ from rest_framework import generics, mixins
 from rest_framework import viewsets
 from rest_framework.pagination import PageNumberPagination, LimitOffsetPagination
 
-
 class StudentPagination(PageNumberPagination):
     page_size = 4
-
 
 class StudentViewSet(viewsets.ModelViewSet):
     queryset = Student.objects.all()
